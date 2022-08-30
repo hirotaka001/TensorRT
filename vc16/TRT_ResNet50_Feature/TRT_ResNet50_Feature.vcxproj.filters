@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CUDA ソース ファイル">
+      <UniqueIdentifier>{0bcaf3d3-7fde-43de-9029-e615021731e7}</UniqueIdentifier>
+      <Extensions>cu</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{9214324c-9239-429d-b874-5c65c838b7ae}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{b6a74c2b-dec2-4a05-9dd5-2668bc6faf49}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\kros\trt\TRT_ResNet50_Feature\TRT_ResNet50_Feature.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\kros\trt\Common\PreProcess_cuda.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\module\TRT_ResNet50_Feature\TRT_ResNet50_Feature.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="..\..\module\Common\PreProcess_cuda.cu">
+      <Filter>CUDA ソース ファイル</Filter>
+    </CudaCompile>
+  </ItemGroup>
+</Project>

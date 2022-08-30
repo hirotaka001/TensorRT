@@ -1,0 +1,15 @@
+cd TRT_YOLOv4
+make -j8
+cd ..
+cd TRT_YOLOv3
+make -j8
+cd ..
+cd TRT_CPN
+make -j8
+cd ..
+cd TRT_ResNet50
+make -j8
+cd ..
+cd TRT_ResNet50_Feature
+make -j8
+cd ..

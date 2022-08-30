@@ -1,0 +1,52 @@
+### output binary
+TARGET_NAME   = ##MODEL##
+CONFIGURATION = Release
+#CONFIGURATION = Debug
+PLATFORM      = $(shell arch)
+TARGET_DIR    = ../../../bin/$(PLATFORM)
+TARGET        = $(TARGET_DIR)/$(TARGET_NAME)_benchmark
+
+### input binary
+$(eval LIB_NAME := $(shell echo KROS_##MODEL## | tr A-Z a-z))
+
+### cpp source codes (.cpp)
+SRCDIR       = ../../../module
+SRCS         = $(SRCDIR)/##MODEL##_sample/$(TARGET_NAME)_benchmark.cpp
+
+### object files
+OBJS         = $(SRCS:.cpp=.o)
+
+### common flags
+OPTFLAGS     = -O2
+ifeq ($(CONFIGURATION), Debug)
+	OPTFLAGS = -O0 -g
+endif
+
+### compiled by gcc 
+CXX         = g++-9
+CXXFLAGS    = $(OPTFLAGS) -Wall -std=c++1z -mtune=native -march=native -fopenmp -D_REENTRANT 
+INCLUDE     = -I"/usr/local/cuda/include" -I"../../../include"
+
+### linked by nvcc
+NVCC        = nvcc
+LDFLAGS     = -lnvparsers -lnvonnxparser -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lgomp -l$(LIB_NAME)
+LDPATH      = -L"/usr/local/cuda/lib64"
+
+### suffix rules
+.SUFFIXES : .cpp .o
+
+.PHONY : all
+all : $(TARGET)
+
+.PHONY : clean
+clean :
+	rm -f $(TARGET) $(OBJS)
+
+$(TARGET): $(OBJS) 
+	@if [ ! -d $(TARGET_DIR) ]; \
+		then mkdir -p $(TARGET_DIR); \
+	fi
+	$(NVCC) $(LDFLAGS) $(LDPATH) -o $@ $<
+	
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -o $@ -c $<

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <IncludePath>../../include;../../3rdparty/OpenCV/4.1.0/include;../../3rdparty/TensorRT/6.0.1.5/include;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>../../3rdparty/OpenCV/4.1.0/lib/vc$(VisualStudioVersion)_$(Platform)_$(Configuration);../../3rdparty/TensorRT/6.0.1.5/lib/vc$(VisualStudioVersion)_$(Platform)_$(Configuration);C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\lib\x64;$(LibraryPath)</LibraryPath>
+    <OutDir>../../bin/vc$(VisualStudioVersion)_$(Platform)_$(Configuration)/</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DisableSpecificWarnings>4819;4996</DisableSpecificWarnings>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>true</OpenMPSupport>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <PostBuildEvent>
+      <Command>xcopy /D /C /Y ..\..\3rdparty\OpenCV\4.1.0\dll\vc$(VisualStudioVersion)_$(Platform)_$(Configuration)\*.dll ..\..\bin\vc$(VisualStudioVersion)_$(Platform)_$(Configuration)\
+
+xcopy /D /C /Y ..\..\3rdparty\TensorRT\6.0.1.5\dll\vc$(VisualStudioVersion)_$(Platform)_$(Configuration)\*.dll ..\..\bin\vc$(VisualStudioVersion)_$(Platform)_$(Configuration)\</Command>
+    </PostBuildEvent>
+    <CudaCompile>
+      <CodeGeneration>;compute_75,sm_75;compute_70,sm_70;compute_61,sm_61;compute_52,sm_52;%(CodeGeneration)</CodeGeneration>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>

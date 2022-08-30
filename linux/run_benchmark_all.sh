@@ -1,0 +1,15 @@
+cd TRT_YOLOv4
+sh run_benchmark.sh
+cd ..
+cd TRT_YOLOv3
+sh run_benchmark.sh
+cd ..
+cd TRT_CPN
+sh run_benchmark.sh
+cd ..
+cd TRT_ResNet50
+sh run_benchmark.sh
+cd ..
+cd TRT_ResNet50_Feature
+sh run_benchmark.sh
+cd ..

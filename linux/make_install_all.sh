@@ -1,0 +1,15 @@
+cd TRT_YOLOv4
+make install
+cd ..
+cd TRT_YOLOv3
+make install
+cd ..
+cd TRT_CPN
+make install
+cd ..
+cd TRT_ResNet50
+make install
+cd ..
+cd TRT_ResNet50_Feature
+make install
+cd ..

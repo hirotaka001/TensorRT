@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make all",
+            "type": "shell",
+            "command": "cd linux && bash make_clean_all.sh && bash make_all.sh",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make clean",
+            "type": "shell",
+            "command": "cd linux && bash make_clean_all.sh",
+            "args": []
+        },
+        {
+            "label": "make yolov3",
+            "type": "shell",
+            "command": "cd linux/TRT_YOLOv3 &&  make -j8",
+            "args": []
+        },
+        {
+            "label": "run yolov3",
+            "type": "shell",
+            "command": "cd linux/TRT_YOLOv3 && bash run.sh",
+            "args": [],
+            "problemMatcher": []
+        },
+        {
+            "label": "make cpn",
+            "type": "shell",
+            "command": "cd linux/TRT_CPN && make",
+            "args": []
+        },
+        {
+            "label": "run cpn",
+            "type": "shell",
+            "command": "cd linux/TRT_CPN && bash run.sh",
+            "args": []
+        },
+        {
+            "label": "make resnet50_feature",
+            "type": "shell",
+            "command": "cd linux/TRT_ResNet50_Feature && make",
+            "args": []
+        },
+        {
+            "label": "run resnet50_feature",
+            "type": "shell",
+            "command": "cd linux/TRT_ResNet50_Feature && bash run.sh",
+            "args": []
+        }
+        {
+            "label": "make resnet50",
+            "type": "shell",
+            "command": "cd linux/TRT_ResNet50 && make",
+            "args": []
+        },
+        {
+            "label": "run resnet50",
+            "type": "shell",
+            "command": "cd linux/TRT_ResNet50 && bash run.sh",
+            "args": []
+        }
+
+    ]
+}

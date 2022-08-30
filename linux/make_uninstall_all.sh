@@ -1,0 +1,15 @@
+cd TRT_YOLOv4
+make uninstall
+cd ..
+cd TRT_YOLOv3
+make uninstall
+cd ..
+cd TRT_CPN
+make uninstall
+cd ..
+cd TRT_ResNet50
+make uninstall
+cd ..
+cd TRT_ResNet50_Feature
+make uninstall
+cd ..
